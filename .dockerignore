@@ -1,0 +1,34 @@
+# Version control and local work
+.git
+.gitignore
+.local
+*.local.yml
+*.local.yaml
+*.log
+test-results
+playwright-report
+tracker.html
+
+# Installed or built on the machine
+node_modules
+dist
+coverage
+*.tsbuildinfo
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Documentation, tests and tooling the image never carries
+docs
+e2e
+scripts
+opencode.json
+biome.json
+playwright.config.ts
+.opencode
+**/*.test.ts
+**/*.test.tsx
+**/test-tls.ts
+src/test
