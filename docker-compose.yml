@@ -1,0 +1,15 @@
+services:
+  blackbox:
+    build: .
+    image: ghcr.io/sanju-es/blackbox-public:${BLACKBOX_TAG:-0.6.8}
+    ports:
+      - '9115:9115'
+    # Read-only file mount. The editor needs a writable directory instead,
+    # because the atomic write renames a temporary file beside the document.
+    volumes:
+      - ./blackbox.yml:/config/blackbox.yml:ro
+    environment:
+      CHECKER_METRICS_ENABLED: 'true'
+      CHECKER_HISTORY_ENABLED: 'true'
+    init: true
+    restart: unless-stopped
